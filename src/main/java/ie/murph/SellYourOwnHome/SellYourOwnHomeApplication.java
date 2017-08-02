@@ -1,4 +1,4 @@
-package ie.murph.SellYourOwnHome;
+package ie.murph.sellyourownhome;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -13,7 +13,7 @@ public class SellYourOwnHomeApplication {
 	
 	@RequestMapping("/")
     String hello() {
-        return "How about you *Sell Your Own Home*";
+        return "Home page *Sell Your Own Home*";
     }
 
 	public static void main(String[] args) {

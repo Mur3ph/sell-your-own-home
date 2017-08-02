@@ -1,4 +1,4 @@
-package ie.murph.SellYourOwnHome;
+package ie.murph.sellyourownhome;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
