@@ -12,7 +12,7 @@ public class HomeController {
 	
 //	http://localhost:8080/home
 	@RequestMapping("/home")
-    String hello() {
+    String greetingsFromHomepage() {
         return "Home page *Sell Your Own Home*";
     }
 
