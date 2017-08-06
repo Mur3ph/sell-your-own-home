@@ -25,7 +25,6 @@ public class HomeController {
 	}
 	
 	public int MrFibonacci(int n){
-		n = 5;
 		if(n == 0)
 	        return 0;
 	    else if(n == 1)
