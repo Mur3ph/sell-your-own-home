@@ -16,6 +16,7 @@ public class HomeController {
 		return "home/index";
 	}
 
+	// http://localhost:8080/greeting
 	@RequestMapping("/greeting")
 	public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name,
 			Model model) {
