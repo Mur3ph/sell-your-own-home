@@ -24,6 +24,16 @@ public class HomeController {
 		return "greeting";
 	}
 	
+	public int MrFibonacci(int n){
+		n = 5;
+		if(n == 0)
+	        return 0;
+	    else if(n == 1)
+	      return 1;
+	   else
+	      return MrFibonacci(n - 1) + MrFibonacci(n - 2);
+	}
+	
 //	@RequestMapping(value="/index", method=RequestMethod.GET)
 //  public String allowAccessToLoginPagePost() 
 //  {
