@@ -25,6 +25,7 @@ public class HomeController {
 		return "greeting";
 	}
 
+	// http://localhost:8080/home/index
 	@RequestMapping("home/index")
 	public String fibonacci(Integer fib, Model model) {
 		model.addAttribute("fib", MrFibonacci(7));
@@ -40,6 +41,7 @@ public class HomeController {
 			return MrFibonacci(n - 1) + MrFibonacci(n - 2);
 	}
 
+	// http://localhost:8080/home/index/7 Return 13
 	@RequestMapping("home/index/{fibPathVar}")
 	public String fibonacciPathVar(@PathVariable("fibPathVar") Integer fibPathVar, Model model) {
 		model.addAttribute("fibPathVar", MrFibonacci(fibPathVar));
