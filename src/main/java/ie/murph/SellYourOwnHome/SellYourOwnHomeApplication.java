@@ -10,5 +10,4 @@ public class SellYourOwnHomeApplication {
 		SpringApplication.run(SellYourOwnHomeApplication.class, args);
 	}
 	
-//	http://localhost:8080/
 }
