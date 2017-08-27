@@ -18,6 +18,7 @@ CREATE TABLE Users
   CONSTRAINT ck_date_of_birth_overage      CHECK ( (EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM date_of_birth)) >= 18)
 );
 
+-- TODO Foreign key might be better suited with property_add_id
 CREATE TABLE Seller
 (
   seller_id                                INTEGER     NOT NULL,
@@ -26,7 +27,7 @@ CREATE TABLE Seller
   post_property_for                        VARCHAR(50) NOT NULL,
   CONSTRAINT pk_seller                     PRIMARY KEY (seller_id),
   CONSTRAINT fk_seller_user                FOREIGN KEY (user_id) REFERENCES Users (user_id),
-  CONSTRAINT fk_seller_prop                FOREIGN KEY (property_id) REFERENCES Users (property_id)
+  CONSTRAINT fk_seller_prop                FOREIGN KEY (property_id) REFERENCES Property (property_id)
 );
 
 CREATE TABLE Buyer
@@ -54,6 +55,7 @@ CREATE TABLE Pauly_Admin
   CONSTRAINT fk_admin_user               FOREIGN KEY (user_id) REFERENCES Users (user_id)
 );
 
+-- TODO: property_address_id column might actually meant to be property_advertizment_id
 CREATE TABLE Property
 (
   property_id                              INTEGER     NOT NULL,
