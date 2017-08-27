@@ -1,4 +1,3 @@
-DROP TABLE Users;
 DROP TABLE Seller;
 DROP TABLE Buyer;
 DROP TABLE Pauly_Admin;
@@ -6,6 +5,7 @@ DROP TABLE Property;
 DROP TABLE Room;
 DROP TABLE Address;
 DROP TABLE Feature;
+DROP TABLE Users;
 
 
 
