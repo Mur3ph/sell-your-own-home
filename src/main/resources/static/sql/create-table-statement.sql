@@ -1,4 +1,3 @@
-DROP TABLE Users;
 
 -- Task 1: Calculate yearly tax
 
