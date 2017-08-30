@@ -1,5 +1,4 @@
-
--- Task 1: Calculate yearly tax
+-- Script to create database for sell your own house website
 
 CREATE TABLE Users
 (
@@ -14,21 +13,10 @@ CREATE TABLE Users
   phone                                    VARCHAR(50) NOT NULL,
   email                                    VARCHAR(50) NOT NULL,
   CONSTRAINT pk_user                       PRIMARY KEY (user_id),
-  CONSTRAINT ck_date_of_birth              CHECK (date_of_birth < sysdate),
-  CONSTRAINT ck_date_of_birth_overage      CHECK ( (EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM date_of_birth)) >= 18)
+  CONSTRAINT ck_date_of_birth              CHECK (date_of_birth < SYSDATE),
+  CONSTRAINT ck_date_of_birth_overage      CHECK ( (EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM date_of_birth)) >= 18)
 );
 
--- TODO Foreign key might be better suited with property_add_id
-CREATE TABLE Seller
-(
-  seller_id                                INTEGER     NOT NULL,
-  user_id                                  INTEGER     NOT NULL,
-  property_id                              VARCHAR(50) NOT NULL,
-  post_property_for                        VARCHAR(50) NOT NULL,
-  CONSTRAINT pk_seller                     PRIMARY KEY (seller_id),
-  CONSTRAINT fk_seller_user                FOREIGN KEY (user_id) REFERENCES Users (user_id),
-  CONSTRAINT fk_seller_prop                FOREIGN KEY (property_id) REFERENCES Property (property_id)
-);
 
 CREATE TABLE Buyer
 (
@@ -70,6 +58,20 @@ CREATE TABLE Property
   CONSTRAINT pk_property                   PRIMARY KEY (property_id)
 );
 
+
+-- TODO Foreign key might be better suited with property_add_id
+CREATE TABLE Seller
+(
+  seller_id                                INTEGER     NOT NULL,
+  user_id                                  INTEGER     NOT NULL,
+  property_id                              VARCHAR(50) NOT NULL,
+  post_property_for                        VARCHAR(50) NOT NULL,
+  CONSTRAINT pk_seller                     PRIMARY KEY (seller_id),
+  CONSTRAINT fk_seller_user                FOREIGN KEY (user_id) REFERENCES Users (user_id),
+  CONSTRAINT fk_seller_prop                FOREIGN KEY (property_id) REFERENCES Property (property_id)
+);
+
+
 CREATE TABLE Room
 (
   room_id                                  INTEGER     NOT NULL,
@@ -80,6 +82,7 @@ CREATE TABLE Room
   CONSTRAINT pk_room                       PRIMARY KEY (room_id),
   CONSTRAINT fk_room_prop                  FOREIGN KEY (property_id) REFERENCES Property (property_id)
 );
+
 
 CREATE TABLE Address
 (
