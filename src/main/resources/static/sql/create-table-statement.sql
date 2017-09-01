@@ -1,3 +1,6 @@
+
+
+-- Giving error with both check constraints
 CREATE TABLE Users
 (
   user_id                                  INTEGER     NOT NULL,
@@ -10,9 +13,9 @@ CREATE TABLE Users
   gender                                   VARCHAR(50) NOT NULL,
   phone                                    VARCHAR(20) NOT NULL,
   email                                    VARCHAR(50) NOT NULL,
-  CONSTRAINT pk_user                       PRIMARY KEY (user_id),
-  CONSTRAINT ck_date_of_birth              CHECK (date_of_birth < SYSDATE),
-  CONSTRAINT ck_date_of_birth_overage      CHECK ( (EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM date_of_birth)) >= 18)
+  CONSTRAINT pk_user                       PRIMARY KEY (user_id)
+  --CONSTRAINT ck_date_of_birth              CHECK (date_of_birth < SYSDATE),
+  --CONSTRAINT ck_date_of_birth_overage      CHECK ( (EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM date_of_birth)) >= 18)
 );
 
 
@@ -64,7 +67,7 @@ CREATE TABLE Seller
 (
   seller_id                                INTEGER     NOT NULL,
   user_id                                  INTEGER     NOT NULL,
-  property_id                              VARCHAR(50) NOT NULL,
+  property_id                              INTEGER     NOT NULL,
   post_property_for                        VARCHAR(50) NOT NULL,
   CONSTRAINT pk_seller                     PRIMARY KEY (seller_id),
   CONSTRAINT fk_seller_user                FOREIGN KEY (user_id) REFERENCES Users (user_id),
@@ -82,31 +85,31 @@ CREATE TABLE Room
   CONSTRAINT fk_room_prop                  FOREIGN KEY (property_id) REFERENCES Property (property_id)
 );
 
-CREATE TABLE Image
+CREATE TABLE Images
 (
   image_id                  INTEGER         NOT NULL,
   room_id                   INTEGER         NOT NULL,
   image_name                VARCHAR2(30),
   mime_type                 VARCHAR2(30),
-  CONTENT                   BLOB,
+  image_content             BLOB,
   CONSTRAINT pk_image       PRIMARY KEY (image_id),
   CONSTRAINT fk_image_room  FOREIGN KEY (room_id) REFERENCES Room (room_id)
-)
+);
 
 
 CREATE TABLE Address
 (
   address_id                               INTEGER     NOT NULL,
-  city                                     VARCHAR(50) NOT NULL,
   property_id                              INTEGER     NOT NULL,
   plot_number                              VARCHAR(50) NOT NULL,
   property_name                            VARCHAR(50) NOT NULL,
   floor_number                             VARCHAR(50) NOT NULL,
   area_name                                VARCHAR(50) NOT NULL,
-  state                                    VARCHAR(50) NOT NULL,
+  city                                     VARCHAR(50) NOT NULL,
+  county                                   VARCHAR(50) NOT NULL,
   country                                  VARCHAR(50) NOT NULL,
   zip                                      VARCHAR(50) NOT NULL,
-  CONSTRAINT pk_address                    PRIMARY KEY (property_address_id),
+  CONSTRAINT pk_address                    PRIMARY KEY (address_id),
   CONSTRAINT fk_address_prop               FOREIGN KEY (property_id) REFERENCES Property (property_id)
 );
 
@@ -120,3 +123,4 @@ CREATE TABLE Feature
   CONSTRAINT pk_feature                    PRIMARY KEY (feature_id),
   CONSTRAINT fk_feature_prop               FOREIGN KEY (property_id) REFERENCES Property (property_id)
 );
+
