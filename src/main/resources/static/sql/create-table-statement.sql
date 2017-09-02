@@ -31,7 +31,7 @@ CREATE TABLE Buyer
   min_budget                             NUMBER(10, 2)  NOT NULL,
   max_budget                             NUMBER(10, 2)  NOT NULL,
   CONSTRAINT pk_buyer                    PRIMARY KEY (buyer_id),
-  CONSTRAINT fk_buyer_user               FOREIGN KEY (user_id) REFERENCES Users (user_id),
+  CONSTRAINT fk_buyer_user               FOREIGN KEY (user_id) REFERENCES Users (user_id) ON DELETE CASCADE,
   CONSTRAINT ck_max_min_budget           CHECK ( min_budget <= max_budget ),
   CONSTRAINT ck_max_min_area             CHECK ( min_area <= max_area )
 );
@@ -43,7 +43,7 @@ CREATE TABLE Pauly_Admin
   username 		                         VARCHAR(20) NOT NULL,
   password 		                         VARCHAR(20) NOT NULL,
   CONSTRAINT pk_admin                    PRIMARY KEY (admin_id),
-  CONSTRAINT fk_admin_user               FOREIGN KEY (user_id) REFERENCES Users (user_id)
+  CONSTRAINT fk_admin_user               FOREIGN KEY (user_id) REFERENCES Users (user_id) ON DELETE CASCADE
 );
 
 -- TODO: property_address_id column might actually meant to be property_advertizment_id
@@ -70,8 +70,8 @@ CREATE TABLE Seller
   property_id                              INTEGER     NOT NULL,
   post_property_for                        VARCHAR(50) NOT NULL,
   CONSTRAINT pk_seller                     PRIMARY KEY (seller_id),
-  CONSTRAINT fk_seller_user                FOREIGN KEY (user_id) REFERENCES Users (user_id),
-  CONSTRAINT fk_seller_prop                FOREIGN KEY (property_id) REFERENCES Property (property_id)
+  CONSTRAINT fk_seller_user                FOREIGN KEY (user_id) REFERENCES Users (user_id) ON DELETE CASCADE,
+  CONSTRAINT fk_seller_prop                FOREIGN KEY (property_id) REFERENCES Property (property_id) ON DELETE CASCADE
 );
 
 
@@ -82,7 +82,7 @@ CREATE TABLE Room
   room_name                                VARCHAR(50)      NOT NULL,
   area                                     NUMBER(20, 2)    NOT NULL,
   CONSTRAINT pk_room                       PRIMARY KEY (room_id),
-  CONSTRAINT fk_room_prop                  FOREIGN KEY (property_id) REFERENCES Property (property_id)
+  CONSTRAINT fk_room_prop                  FOREIGN KEY (property_id) REFERENCES Property (property_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Images
@@ -93,7 +93,7 @@ CREATE TABLE Images
   mime_type                 VARCHAR2(30),
   image_content             BLOB,
   CONSTRAINT pk_image       PRIMARY KEY (image_id),
-  CONSTRAINT fk_image_room  FOREIGN KEY (room_id) REFERENCES Room (room_id)
+  CONSTRAINT fk_image_room  FOREIGN KEY (room_id) REFERENCES Room (room_id) ON DELETE CASCADE
 );
 
 
@@ -110,7 +110,7 @@ CREATE TABLE Address
   country                                  VARCHAR(50) NOT NULL,
   zip                                      VARCHAR(50) NOT NULL,
   CONSTRAINT pk_address                    PRIMARY KEY (address_id),
-  CONSTRAINT fk_address_prop               FOREIGN KEY (property_id) REFERENCES Property (property_id)
+  CONSTRAINT fk_address_prop               FOREIGN KEY (property_id) REFERENCES Property (property_id) ON DELETE CASCADE
 );
 
 
@@ -121,6 +121,6 @@ CREATE TABLE Feature
   feature_name                             VARCHAR(50) NOT NULL,
   feature_description                      VARCHAR(50) NOT NULL,
   CONSTRAINT pk_feature                    PRIMARY KEY (feature_id),
-  CONSTRAINT fk_feature_prop               FOREIGN KEY (property_id) REFERENCES Property (property_id)
+  CONSTRAINT fk_feature_prop               FOREIGN KEY (property_id) REFERENCES Property (property_id) ON DELETE CASCADE
 );
 
