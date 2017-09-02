@@ -85,7 +85,7 @@ CREATE TABLE Room
   CONSTRAINT fk_room_prop                  FOREIGN KEY (property_id) REFERENCES Property (property_id) ON DELETE CASCADE
 );
 
-CREATE TABLE Images
+CREATE TABLE Image
 (
   image_id                  INTEGER         NOT NULL,
   room_id                   INTEGER         NOT NULL,
