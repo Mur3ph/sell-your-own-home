@@ -28,7 +28,7 @@ public class TestController {
 	// http://localhost:8080/home/index
 	@RequestMapping("test/index")
 	public String fibonacci(Integer fib, Model model) {
-		model.addAttribute("fib", MrFibonacci(7));
+		model.addAttribute("fib", MrFibonacci(13));
 		return "test/index";
 	}
 
