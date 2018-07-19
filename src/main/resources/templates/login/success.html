@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+
+<div layout:fragment="content">
+
+	<!-- ${person.firstName} -->
+
+	<div class="text-center" style="padding-top: 50px">
+		<h1>Welcome !</h1>
+
+		<div class="wrapper">
+			<div class="text-center" style="padding-top: 50px">
+				<h1>Welcome !</h1>
+				<p
+					th:text="'Full name: ' + ${person.firstName} + ' ' + ${person.lastName}" />
+				<a class="btn btn-primary" href="/login/index"> Login </a>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+</html>

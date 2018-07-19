@@ -30,6 +30,15 @@ public class Person {
 	public Long getPerson_id() {
 		return person_id;
 	}
+	
+	public Person() {}
+
+	public Person(String firstName, String lastName, String password, String username) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+}
 
 	public void setPerson_id(Long person_id) {
 		this.person_id = person_id;

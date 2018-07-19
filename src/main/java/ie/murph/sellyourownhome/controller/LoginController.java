@@ -16,19 +16,18 @@ import ie.murph.sellyourownhome.service.LoginService;
 public class LoginController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
-	private static final String urlLoginPage = "login/index";
-	private static final String urlPersonHome = "house/index";
-	private static final String urlUnsuccessfulLogin = "exceptions/login-unsuccessful";
+	private static final String urlLoginPage = "/login/index";
 	private static Person person;
-	
+
 	@Autowired
 	private LoginService loginService;
 
 	// http://localhost:8080/login/index
-	@RequestMapping(value = urlLoginPage)
+	@RequestMapping(value = urlLoginPage, method = RequestMethod.GET)
 	public String routeToLoginPage(Model model) {
 		LOGGER.info("++routeToLoginPage()");
-		model.addAttribute("person", new Person()); 
+		passPersonObjectToLoginPage(model);
+		LOGGER.info("--routeToLoginPage()");
 		return urlLoginPage;
 	}
 
@@ -37,8 +36,8 @@ public class LoginController {
 	}
 
 	// Where to go after the login success page
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String submitLoginUsernameAndPassword(@RequestParam(value = "username", required = false) String username,
+	@RequestMapping(value = urlLoginPage, method = RequestMethod.POST)
+	public String login(@RequestParam(value = "username", required = false) String username,
 			@RequestParam(value = "password", required = false) String password, Model model) {
 		LOGGER.info("+submitLoginUsernameAndPassword()");
 		person = loginService.doesPersonExist(username, password);
@@ -53,16 +52,28 @@ public class LoginController {
 	private String url() {
 		String url = "";
 		if (pesonIsNull()) {
-			url = urlUnsuccessfulLogin;
+			url = "/login/exception";
 		} else {
-			url = urlPersonHome;
+			url = "/login/success";
 		}
 		return url;
 	}
+
+	private boolean pesonIsNull() {
+		return person == null;
+	}
+
+	@RequestMapping(value = "/login/success", method = RequestMethod.GET)
+	public String homePage(Model model) {
+		LOGGER.info("+homePage()");
+		model.addAttribute("person", new Person());
+		return "/login/success";
+	}
 	
-	private boolean pesonIsNull()
-    {
-    	return person == null;
-}
+	@RequestMapping(value = "/login/exception", method = RequestMethod.GET)
+	public String errorPage() {
+		LOGGER.info("+errorPage()");
+		return "/login/exception";
+	}
 
 }
