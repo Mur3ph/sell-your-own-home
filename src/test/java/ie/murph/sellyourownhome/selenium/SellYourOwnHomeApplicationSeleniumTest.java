@@ -1,5 +1,6 @@
 package ie.murph.sellyourownhome.selenium;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,7 +23,10 @@ public class SellYourOwnHomeApplicationSeleniumTest {
 		
 		 //Launch the Online Store Website
 		driver.get("http://localhost:8080/login/index.html");
-		
+		driver.findElement(By.id("username")).sendKeys("lo");
+		driver.findElement(By.id("password")).sendKeys("pass");
+		driver.findElement(By.id("btnSubmit")).click();
+
        // Print a Log In message to the screen
        System.out.println("Successfully opened the website localhost");
 
