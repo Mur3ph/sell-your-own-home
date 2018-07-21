@@ -14,7 +14,8 @@ public class SellYourOwnHomeApplicationSeleniumTest {
 		initializeMarionetteDriver();
 		WebDriver driver = launchFireFoxBrowserDriver();
 
-		successfulLogin(driver);
+		successfulLoginCredentials(driver);
+		unsuccessfulLoginCredentials(driver);
 		closeWebDriver(driver);
 	}
 
@@ -33,26 +34,50 @@ public class SellYourOwnHomeApplicationSeleniumTest {
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("marionette", true);
 	}
-	
+
 	private static FirefoxDriver launchFireFoxBrowserDriver() {
 		return new FirefoxDriver();
 	}
 
-	private static void successfulLogin(WebDriver driver) {
-		// Launch the Online Store Website
-		driver.get("http://localhost:8080/login/index.html");
+	private static void successfulLoginCredentials(WebDriver driver) {
+		launchLoginPage(driver);
 		driver.findElement(By.id("username")).sendKeys("lo");
 		driver.findElement(By.id("password")).sendKeys("pass");
-		driver.findElement(By.id("btnSubmit")).click();
+		clickSubmitButtonOnLoginPage(driver);
 
+		printSuccessfulConnection();
+		waitAFewSecondsBeforeClosingSeleniumBrowserWindowTest();
+	}
+
+	private static void unsuccessfulLoginCredentials(WebDriver driver) {
+		launchLoginPage(driver);
+		driver.findElement(By.id("username")).sendKeys("hacker");
+		driver.findElement(By.id("password")).sendKeys("password123");
+		clickSubmitButtonOnLoginPage(driver);
+
+		printSuccessfulConnection();
+		waitAFewSecondsBeforeClosingSeleniumBrowserWindowTest();
+	}
+
+	private static void launchLoginPage(WebDriver driver) {
+		// Launch the login page
+		driver.get("http://localhost:8080/login/index.html");
+	}
+
+	private static void clickSubmitButtonOnLoginPage(WebDriver driver) {
+		driver.findElement(By.id("btnSubmit")).click();
+	}
+
+	private static void printSuccessfulConnection() {
 		// Print a Log In message to the screen
 		System.out.println("Successfully opened the website localhost");
+	}
 
-		// Wait for 5 Sec
+	private static void waitAFewSecondsBeforeClosingSeleniumBrowserWindowTest() {
+		// Wait for 5 Seconds = 5000
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
