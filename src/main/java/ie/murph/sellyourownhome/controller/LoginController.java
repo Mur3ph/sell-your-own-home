@@ -17,6 +17,8 @@ public class LoginController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 	private static final String urlLoginPage = "/login/index";
+	private static final String urlExceptionError404 = "/exceptions/error-404";
+	private static final String urlExceptionSuccess = "/exceptions/success";
 	private static Person person;
 
 	@Autowired
@@ -52,9 +54,9 @@ public class LoginController {
 	private String url() {
 		String url = "";
 		if (pesonIsNull()) {
-			url = "/exceptions/error-404";
+			url = urlExceptionError404;
 		} else {
-			url = "/exceptions/success";
+			url = urlExceptionSuccess;
 		}
 		return url;
 	}
@@ -63,17 +65,17 @@ public class LoginController {
 		return person == null;
 	}
 
-	@RequestMapping(value = "/exceptions/success", method = RequestMethod.GET)
+	@RequestMapping(value = urlExceptionSuccess, method = RequestMethod.GET)
 	public String homePage(Model model) {
 		LOGGER.info("+homePage()");
 		model.addAttribute("person", new Person());
-		return "/login/success";
+		return urlExceptionSuccess;
 	}
 	
-	@RequestMapping(value = "/exceptions/error-404", method = RequestMethod.GET)
+	@RequestMapping(value = urlExceptionError404, method = RequestMethod.GET)
 	public String errorPage() {
 		LOGGER.info("+errorPage()");
-		return "/exceptions/error-404";
+		return urlExceptionError404;
 	}
 
 }
