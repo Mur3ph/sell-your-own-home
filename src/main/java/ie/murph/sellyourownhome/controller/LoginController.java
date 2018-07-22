@@ -52,9 +52,9 @@ public class LoginController {
 	private String url() {
 		String url = "";
 		if (pesonIsNull()) {
-			url = "/login/exception";
+			url = "/exceptions/error-404";
 		} else {
-			url = "/login/success";
+			url = "/exceptions/success";
 		}
 		return url;
 	}
@@ -63,17 +63,17 @@ public class LoginController {
 		return person == null;
 	}
 
-	@RequestMapping(value = "/login/success", method = RequestMethod.GET)
+	@RequestMapping(value = "/exceptions/success", method = RequestMethod.GET)
 	public String homePage(Model model) {
 		LOGGER.info("+homePage()");
 		model.addAttribute("person", new Person());
 		return "/login/success";
 	}
 	
-	@RequestMapping(value = "/login/exception", method = RequestMethod.GET)
+	@RequestMapping(value = "/exceptions/error-404", method = RequestMethod.GET)
 	public String errorPage() {
 		LOGGER.info("+errorPage()");
-		return "/login/exception";
+		return "/exceptions/error-404";
 	}
 
 }
