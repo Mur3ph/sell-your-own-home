@@ -1,10 +1,10 @@
 package ie.murph.sellyourownhome.selenium;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import ie.murph.sellyourownhome.selenium.login.LoginPageSeleniumTest;
 
-@SpringBootApplication
+@SpringBootTest
 public class SellYourOwnHomeApplicationSeleniumTest {
 
 	public static void main(String[] args) {
