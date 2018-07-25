@@ -14,13 +14,12 @@ public class LoginService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginService.class);
 
 	@Autowired
-    private LoginRepository repository;
-	
-	public Person doesPersonExist(String username, String password)
-	{
+	private LoginRepository repository;
+
+	public Person doesPersonExist(String username, String password) {
 		LOGGER.info("+doesPersonExist()");
 		Person person = repository.findPersonByUsernameAndPassword(username, password);
 		return person;
-}
+	}
 
 }

@@ -16,10 +16,10 @@ import ie.murph.sellyourownhome.service.LoginService;
 public class LoginController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
-	private static final String urlLoginPage = "/login/index";
-	private static final String urlExceptionError404 = "/exceptions/error-404";
-	private static final String urlExceptionSuccess = "/exceptions/success";
-	private static Person person;
+	private final String urlLoginPage = "/login/index";
+	private final String urlExceptionError404 = "/exceptions/error-404";
+	private final String urlExceptionSuccess = "/exceptions/success";
+	private Person person;
 
 	@Autowired
 	private LoginService loginService;
