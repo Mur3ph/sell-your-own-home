@@ -11,9 +11,14 @@ CREATE DATABASE sellyourownhomedb
        LC_CTYPE = 'English_Ireland.1252'
        CONNECTION LIMIT = -1;
        
+       
+-- #################################################################################################################################################
+
+
 -- Table: person
 
 -- DROP TABLE person;
+
 
 CREATE TABLE person
 (
@@ -36,3 +41,35 @@ INSERT INTO person (person_id, first_name, last_name, username, password)
 VALUES( 101, 'Lola', 'Murphy', 'lo', 'pass' );
 
 SELECT * FROM person;
+
+
+-- #################################################################################################################################################
+
+
+-- Table: photo_information
+
+-- DROP TABLE photo_information;
+
+
+CREATE TABLE photo_information
+(
+  photo_information_id 				SERIAL NOT NULL,
+  is_main_url_photo 				BOOLEAN NOT NULL,
+  url_location 						CHARACTER VARYING(150) NOT NULL,
+  CONSTRAINT pk_photo_information 	PRIMARY KEY (photo_information_id),
+  CONSTRAINT uk_person_username 	UNIQUE (url_location)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE photo_information
+OWNER TO postgres;
+
+
+INSERT INTO photo_information (photo_information_id, is_main_url_photo, url_location)
+VALUES( 1001, TRUE, '/images/property-listings/property_2.jpg' );
+
+SELECT * FROM photo_information;
+
+
+-- #################################################################################################################################################
