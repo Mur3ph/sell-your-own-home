@@ -54,7 +54,12 @@ SELECT * FROM person;
 CREATE TABLE photo_information
 (
   photo_information_id 				SERIAL NOT NULL,
+  -- enter_foreign_key 				SERIAL NOT NULL,
+  type_of_property 					CHARACTER VARYING(150) NOT NULL,
   is_main_url_photo 				BOOLEAN NOT NULL,
+  is_for_sale		 				BOOLEAN NOT NULL,
+  is_for_rent		 				BOOLEAN NOT NULL,
+  is_viager			 				BOOLEAN NOT NULL,
   url_location 						CHARACTER VARYING(150) NOT NULL,
   CONSTRAINT pk_photo_information 	PRIMARY KEY (photo_information_id),
   CONSTRAINT uk_url_location	 	UNIQUE (url_location)
@@ -67,7 +72,7 @@ OWNER TO postgres;
 
 
 INSERT INTO photo_information (photo_information_id, is_main_url_photo, url_location)
-VALUES( 1001, TRUE, '/images/property-listings/property_2.jpg' );
+VALUES( 1001, 'House', TRUE, FALSE, FALSE, TRUE, '/images/property-listings/property_2.jpg' );
 
 SELECT * FROM photo_information;
 
