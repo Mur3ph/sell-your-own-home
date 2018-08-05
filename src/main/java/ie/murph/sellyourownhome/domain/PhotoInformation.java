@@ -15,8 +15,20 @@ public class PhotoInformation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(name = "type_of_property", nullable = false)
+	private String typeOfProperty;
+	
 	@Column(name = "is_main_url_photo", nullable = false)
 	private int isMainURLPhoto;
+	
+	@Column(name = "is_for_sale", nullable = false)
+	private int isForSale;
+	
+	@Column(name = "is_for_rent", nullable = false)
+	private int isForRent;
+	
+	@Column(name = "is_viager", nullable = false)
+	private int isViager;
 	
 	@Column(name = "url_location", nullable = false)
 	private String urlLocation;
