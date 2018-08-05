@@ -28,7 +28,7 @@ CREATE TABLE person
   username 							CHARACTER VARYING(150) NOT NULL,
   password 							CHARACTER VARYING(150) NOT NULL,
   CONSTRAINT pk_person 				PRIMARY KEY (person_id),
-  CONSTRAINT uk_person_username 	UNIQUE (username)
+  CONSTRAINT uk_url_location	 	UNIQUE (username)
 )
 WITH (
   OIDS=FALSE
