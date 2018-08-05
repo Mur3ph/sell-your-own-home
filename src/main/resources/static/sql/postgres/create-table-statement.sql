@@ -28,7 +28,7 @@ CREATE TABLE person
   username 							CHARACTER VARYING(150) NOT NULL,
   password 							CHARACTER VARYING(150) NOT NULL,
   CONSTRAINT pk_person 				PRIMARY KEY (person_id),
-  CONSTRAINT uk_url_location	 	UNIQUE (username)
+  CONSTRAINT uk_person_username 	UNIQUE (username)
 )
 WITH (
   OIDS=FALSE
@@ -57,7 +57,7 @@ CREATE TABLE photo_information
   is_main_url_photo 				BOOLEAN NOT NULL,
   url_location 						CHARACTER VARYING(150) NOT NULL,
   CONSTRAINT pk_photo_information 	PRIMARY KEY (photo_information_id),
-  CONSTRAINT uk_person_username 	UNIQUE (url_location)
+  CONSTRAINT uk_url_location	 	UNIQUE (url_location)
 )
 WITH (
   OIDS=FALSE
