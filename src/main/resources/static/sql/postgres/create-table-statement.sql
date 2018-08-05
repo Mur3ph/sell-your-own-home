@@ -71,7 +71,7 @@ ALTER TABLE photo_information
 OWNER TO postgres;
 
 
-INSERT INTO photo_information (photo_information_id, is_main_url_photo, url_location)
+INSERT INTO photo_information (photo_information_id, type_of_property, is_main_url_photo, is_for_sale, is_for_rent, is_viager, url_location)
 VALUES( 1001, 'House', TRUE, FALSE, FALSE, TRUE, '/images/property-listings/property_2.jpg' );
 
 SELECT * FROM photo_information;
