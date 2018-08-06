@@ -7,10 +7,10 @@
 	<div class="text-center" style="padding-top: 50px">
 
 		<section class="listings">
-			<div class="wrapper">
+			<div class="wrapper" th:object="${photoInformation}" method="get">
 				<ul class="properties_list">
 					<li><a href="/house/property.html"> <img
-							src="/images/property-listings/property_1.jpg" height="42"
+							th:src="${photoInformation.urlLocation}" height="42"
 							width="42" alt="" title="" class="property_img" />
 					</a> <span class="price">$2500</span>
 						<div class="property_details">
