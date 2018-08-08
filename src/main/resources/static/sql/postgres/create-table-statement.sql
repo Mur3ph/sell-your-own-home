@@ -77,6 +77,9 @@ VALUES( 1001, 'House', TRUE, FALSE, FALSE, TRUE, '/images/property-listings/prop
 INSERT INTO photo_information (photo_information_id, type_of_property, is_main_url_photo, is_for_sale, is_for_rent, is_viager, url_location)
 VALUES( 1002, 'House', TRUE, FALSE, FALSE, TRUE, '/images/property-listings/property_3.jpg' );
 
+INSERT INTO photo_information (photo_information_id, type_of_property, is_main_url_photo, is_for_sale, is_for_rent, is_viager, url_location)
+VALUES( 1002, 'House', TRUE, FALSE, FALSE, TRUE, '/images/property-listings/property_1.jpg' );
+
 SELECT * FROM photo_information;
 
 
