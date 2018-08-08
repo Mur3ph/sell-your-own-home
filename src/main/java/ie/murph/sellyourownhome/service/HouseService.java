@@ -1,5 +1,7 @@
 package ie.murph.sellyourownhome.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,9 @@ public class HouseService {
 	@Autowired
 	private HouseRepository repository;
 
-	public PhotoInformation getPhotoInformation() {
+	public List<PhotoInformation> getPhotoInformation() {
 		LOGGER.info("++getPhotoInformation()");
-		PhotoInformation photoInformation = repository.findPhotoInformation();
+		List<PhotoInformation> photoInformation = repository.findPhotoInformation();
 		return photoInformation;
 	}
 

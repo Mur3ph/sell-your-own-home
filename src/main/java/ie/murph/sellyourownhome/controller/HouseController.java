@@ -1,5 +1,7 @@
 package ie.murph.sellyourownhome.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ import ie.murph.sellyourownhome.service.HouseService;
 public class HouseController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(HouseController.class);
-	private PhotoInformation photoInformation;
+	private List<PhotoInformation> photoInformation;
 	
 	@Autowired
 	private HouseService houseService;
@@ -26,12 +28,12 @@ public class HouseController {
 		LOGGER.info("++index()");
 		photoInformation = houseService.getPhotoInformation();
 		savePhotoInformationToHousePage(model, photoInformation);
-		LOGGER.info("--index()" + " " + photoInformation.getUrlLocation());
+		LOGGER.info("--index()" + " Size: " + photoInformation.size());
 		return "house/index";
 	}
 	
-	private void savePhotoInformationToHousePage(Model model, PhotoInformation photoInformation) {
-		model.addAttribute("photoInformation", photoInformation);
+	private void savePhotoInformationToHousePage(Model model, List<PhotoInformation> photoInformation2) {
+		model.addAttribute("photoInformation", photoInformation2);
 	}
 	
 	@RequestMapping("house/property")
