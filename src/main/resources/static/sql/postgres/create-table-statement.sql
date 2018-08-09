@@ -46,7 +46,7 @@ SELECT * FROM person;
 -- #################################################################################################################################################
 
 
--- Table: photo_information
+-- Table: photo_information ** Might change name of table to property_details **
 
 -- DROP TABLE photo_information;
 
