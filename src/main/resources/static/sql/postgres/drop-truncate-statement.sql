@@ -6,8 +6,8 @@
 
 -- DROP TABLE user;
 -- DROP TABLE product;
--- DROP TABLE photo_information;
--- DROP TABLE photo_information;
+-- DROP TABLE supplier;
+-- DROP TABLE property_photo_details;
 
 
 -- #################################################################################################################################################

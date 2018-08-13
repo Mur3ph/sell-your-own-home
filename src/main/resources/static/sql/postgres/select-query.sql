@@ -3,8 +3,8 @@
 
 -- SELECT * FROM user;
 -- SELECT * FROM product;
--- SELECT * FROM photo_information;
--- SELECT * FROM photo_information;
+-- SELECT * FROM supplier;
+-- SELECT * FROM property_photo_details;
 
 
 -- #################################################################################################################################################
