@@ -6,6 +6,19 @@
 INSERT INTO user (person_id, first_name, last_name, username, password)
 VALUES( 101, 'Lola', 'Murphy', 'lo', 'pass' );
 
+INSERT INTO user (person_id, first_name, last_name, username, password)
+VALUES( 101, 'Lola', 'Murphy', 'lo', 'pass' );
+
+
+
+-- #################################################################################################################################################
+
+-- Supplier Table
+
+
+INSERT INTO supplier (supplier_id, supplier_name, supplier_address, supplier_phone)
+VALUES( 201, 'Lola', 'Roscommon', '041 1234567' );
+
 
 
 -- #################################################################################################################################################
