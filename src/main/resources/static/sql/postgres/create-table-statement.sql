@@ -18,7 +18,7 @@
 
 -- Table: user - user is the buyer, bidder of the property
 
-CREATE TABLE user
+CREATE TABLE the_user
 (
   person_id 						SERIAL NOT NULL,
   first_name 						CHARACTER VARYING(150) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE user
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE user
+ALTER TABLE the_user
 OWNER TO postgres;
 
 
@@ -97,7 +97,7 @@ CREATE TABLE property_photo_details
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE property_details
+ALTER TABLE property_photo_details
 OWNER TO postgres;
 
 

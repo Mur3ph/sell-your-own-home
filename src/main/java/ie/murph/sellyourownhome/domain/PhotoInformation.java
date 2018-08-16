@@ -8,80 +8,59 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "photo_information")
+@Table(name = "property_photo_details")
 public class PhotoInformation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int photo_information_id;
+	private int property_photo_details_id;
 	
-	@Column(name = "type_of_property", nullable = false)
-	private String typeOfProperty;
+	@Column(name = "product_id", nullable = false)
+	private int productId;
 	
 	@Column(name = "is_main_url_photo", nullable = false)
 	private boolean isMainURLPhoto;
 	
-	@Column(name = "is_for_sale", nullable = false)
-	private boolean isForSale;
-	
-	@Column(name = "is_for_rent", nullable = false)
-	private boolean isForRent;
-	
-	@Column(name = "is_viager", nullable = false)
-	private boolean isViager;
-	
 	@Column(name = "url_location", nullable = false)
 	private String urlLocation;
+	
+	@Column(name = "about", nullable = false)
+	private String about;
+	
+	@Column(name = "location", nullable = false)
+	private String location;
+	
+	@Column(name = "current_bidder", nullable = false)
+	private String currentBidder;
+	
+	@Column(name = "current_bid", nullable = false)
+	private int currentBid;
 
 	public PhotoInformation() {
 	}
 
-	public int getId() {
-		return photo_information_id;
+	public int getProperty_photo_details_id() {
+		return property_photo_details_id;
 	}
 
-	public void setId(int id) {
-		this.photo_information_id = id;
+	public void setProperty_photo_details_id(int property_photo_details_id) {
+		this.property_photo_details_id = property_photo_details_id;
 	}
 
-	public String getTypeOfProperty() {
-		return typeOfProperty;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setTypeOfProperty(String typeOfProperty) {
-		this.typeOfProperty = typeOfProperty;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
-	public boolean getIsMainURLPhoto() {
+	public boolean isMainURLPhoto() {
 		return isMainURLPhoto;
 	}
 
-	public void setIsMainURLPhoto(boolean isMainURLPhoto) {
+	public void setMainURLPhoto(boolean isMainURLPhoto) {
 		this.isMainURLPhoto = isMainURLPhoto;
-	}
-
-	public boolean getIsForSale() {
-		return isForSale;
-	}
-
-	public void setIsForSale(boolean isForSale) {
-		this.isForSale = isForSale;
-	}
-
-	public boolean getIsForRent() {
-		return isForRent;
-	}
-
-	public void setIsForRent(boolean isForRent) {
-		this.isForRent = isForRent;
-	}
-
-	public boolean getIsViager() {
-		return isViager;
-	}
-
-	public void setIsViager(boolean isViager) {
-		this.isViager = isViager;
 	}
 
 	public String getUrlLocation() {
@@ -92,12 +71,43 @@ public class PhotoInformation {
 		this.urlLocation = urlLocation;
 	}
 
+	public String getAbout() {
+		return about;
+	}
+
+	public void setAbout(String about) {
+		this.about = about;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getCurrentBidder() {
+		return currentBidder;
+	}
+
+	public void setCurrentBidder(String currentBidder) {
+		this.currentBidder = currentBidder;
+	}
+
+	public int getCurrentBid() {
+		return currentBid;
+	}
+
+	public void setCurrentBid(int currentBid) {
+		this.currentBid = currentBid;
+	}
+
 	@Override
 	public String toString() {
-		return "PhotoInformation [id=" + photo_information_id + ", typeOfProperty=" + typeOfProperty + ", isMainURLPhoto="
-				+ isMainURLPhoto + ", isForSale=" + isForSale + ", isForRent=" + isForRent + ", isViager=" + isViager
-				+ ", urlLocation=" + urlLocation + "]";
+		return "PhotoInformation [property_photo_details_id=" + property_photo_details_id + ", productId=" + productId
+				+ ", isMainURLPhoto=" + isMainURLPhoto + ", urlLocation=" + urlLocation + ", about=" + about
+				+ ", location=" + location + ", currentBidder=" + currentBidder + ", currentBid=" + currentBid + "]";
 	}
-	
-	
+
 }

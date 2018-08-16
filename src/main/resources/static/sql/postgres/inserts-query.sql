@@ -3,13 +3,13 @@
 
 -- User Table
 
-INSERT INTO user (person_id, first_name, last_name, username, password)
+INSERT INTO the_user (person_id, first_name, last_name, username, password)
 VALUES( 101, 'Lola', 'Murphy', 'lo', 'password' );
 
-INSERT INTO user (person_id, first_name, last_name, username, password)
+INSERT INTO the_user (person_id, first_name, last_name, username, password)
 VALUES( 102, 'Minnie', 'Murphy', 'min', 'password' );
 
-INSERT INTO user (person_id, first_name, last_name, username, password)
+INSERT INTO the_user (person_id, first_name, last_name, username, password)
 VALUES( 103, 'Angie', 'Murphy', 'angie', 'password' );
 
 
@@ -56,7 +56,7 @@ INSERT INTO property_photo_details (property_photo_details_id, product_id, is_ma
 VALUES( 402, 302, TRUE, '/images/property-listings/property_3.jpg', '1 kitchens, 2 bed, 1 bath...', 'FAr side of Balscaddin..Co. Galway', 'Minnie', 100000.00  );
 
 INSERT INTO property_photo_details (property_photo_details_id, product_id, is_main_url_photo, url_location, about, location, current_bidder, current_bid)
-VALUES( 403, 303, TRUE, '/images/property-listings/property_1.jpg', '1 kitchens, 4 bed, 2 bath...', 'It's a long way to Tipperary, Co. Wexford', 'Angie', 145000.00  );
+VALUES( 403, 303, TRUE, '/images/property-listings/property_1.jpg', '1 kitchens, 4 bed, 2 bath...', 'Its a long way to Tipperary, Co. Wexford', 'Angie', 145000.00  );
 
 
 
