@@ -13,13 +13,13 @@
 					
 					<li th:each="photoInfo : ${photoInformation}">
 						<a href="/house/property.html"> <img th:src="${photoInfo.urlLocation}" height="42" width="42" alt="property image" title="property image" class="property_img" /></a> 
-						<span class="price">$2500</span>
+						<span class="price">$<label th:text="${photoInfo.currentBid}"></label></span>
 						<div class="property_details">
 							<h1>
-								<a href="/house/property.html">Fuisque dictum tortor at purus libero </a>
+								<a href="/house/property.html"><label th:text="${photoInfo.location}"></label> </a>
 							</h1>
 							<h2>
-								2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span>
+								<label th:text="${photoInfo.about}"></label> <span class="property_size">(288ftsq)</span>
 							</h2>
 						</div>
 					</li>
