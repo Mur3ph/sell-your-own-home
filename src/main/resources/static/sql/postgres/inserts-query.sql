@@ -1,15 +1,15 @@
 
 -- #################################################################################################################################################
 
--- User Table
+-- Shopper/Bidder Table
 
-INSERT INTO the_user (person_id, first_name, last_name, username, password)
+INSERT INTO shopper (shopper_id, first_name, last_name, username, password)
 VALUES( 101, 'Lola', 'Murphy', 'lo', 'password' );
 
-INSERT INTO the_user (person_id, first_name, last_name, username, password)
+INSERT INTO shopper (shopper_id, first_name, last_name, username, password)
 VALUES( 102, 'Minnie', 'Murphy', 'min', 'password' );
 
-INSERT INTO the_user (person_id, first_name, last_name, username, password)
+INSERT INTO shopper (shopper_id, first_name, last_name, username, password)
 VALUES( 103, 'Angie', 'Murphy', 'angie', 'password' );
 
 

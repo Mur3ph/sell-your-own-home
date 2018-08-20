@@ -16,22 +16,22 @@
 -- #################################################################################################################################################
 
 
--- Table: user - user is the buyer, bidder of the property
+-- Table: shopper - user is the buyer, bidder of the property
 
-CREATE TABLE the_user
+CREATE TABLE shopper
 (
-  person_id 						SERIAL NOT NULL,
+  shopper_id 						SERIAL NOT NULL,
   first_name 						CHARACTER VARYING(150) NOT NULL,
   last_name 						CHARACTER VARYING(150) NOT NULL,
   username 							CHARACTER VARYING(150) NOT NULL,
   password 							CHARACTER VARYING(150) NOT NULL,
-  CONSTRAINT pk_person 				PRIMARY KEY (person_id),
+  CONSTRAINT pk_shopper 			PRIMARY KEY (shopper_id),
   CONSTRAINT uk_person_username 	UNIQUE (username)
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE the_user
+ALTER TABLE shopper
 OWNER TO postgres;
 
 

@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "the_user")
+@Table(name = "shopper")
 public class Person {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long person_id;
+	private Long shopper_id;
 
 	@Column(name = "first_name", nullable = false)
 	private String firstName;
@@ -28,7 +28,7 @@ public class Person {
 	private String password;
 
 	public Long getPerson_id() {
-		return person_id;
+		return shopper_id;
 	}
 	
 	public Person() {}
@@ -41,7 +41,7 @@ public class Person {
 }
 
 	public void setPerson_id(Long person_id) {
-		this.person_id = person_id;
+		this.shopper_id = person_id;
 	}
 	
 	public String getFirstName() {
