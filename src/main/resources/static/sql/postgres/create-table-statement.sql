@@ -104,6 +104,25 @@ OWNER TO postgres;
 -- #################################################################################################################################################
 
 
+-- Table: photo_album - used to store all photo of each property
+
+CREATE TABLE photo_album
+(
+	photo_album_id 					SERIAL NOT NULL,
+	property_photo_details_id 		SERIAL NOT NULL,
+	url_location 					TEXT[] NOT NULL,
+	CONSTRAINT pk_photo_album	 	PRIMARY KEY (photo_album_id),
+    CONSTRAINT fk_photo_details		FOREIGN KEY (property_photo_details_id) REFERENCES property_photo_details (property_photo_details_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE photo_album
+OWNER TO postgres;
+
+-- #################################################################################################################################################
+
+
 -- Table: order - used for user to place a bid on the property
 
 CREATE TABLE order

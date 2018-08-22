@@ -61,3 +61,20 @@ VALUES( 403, 303, TRUE, '/images/property-listings/property_1.jpg', '1 kitchens,
 
 
 -- #################################################################################################################################################
+
+
+-- Photo Album table
+
+INSERT INTO photo_album (photo_album_id, property_photo_details_id, url_location)
+VALUES( 501, 401, '{"/images/property-listings/property_1.jpg", "/images/property-listings/property_2.jpg", "/images/property-listings/property_3.jpg"}' );
+
+INSERT INTO photo_album (photo_album_id, property_photo_details_id, url_location)
+VALUES( 502, 402, '{"/images/property-listings/property_1.jpg", "/images/property-listings/property_2.jpg", "/images/property-listings/property_3.jpg"}' );
+
+INSERT INTO photo_album (photo_album_id, property_photo_details_id, url_location)
+VALUES( 503, 403, '{"/images/property-listings/property_1.jpg", "/images/property-listings/property_2.jpg", "/images/property-listings/property_3.jpg"}' );
+
+
+
+-- #################################################################################################################################################
+
