@@ -16,6 +16,7 @@ public class PhotoInformation {
 	private int property_photo_details_id;
 	
 	@Column(name = "product_id", nullable = false)
+//	@OneToMany(targetEntity=Student.class, mappedBy="college", fetch=FetchType.EAGER)
 	private int productId;
 	
 	@Column(name = "is_main_url_photo", nullable = false)
